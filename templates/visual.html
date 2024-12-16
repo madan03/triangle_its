@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Triangle Visualization</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="card">
+        <h1>Triangle Visualization</h1>
+        {% if img_url %}
+            <img src="{{ img_url }}" alt="Triangle Visualization">
+        {% else %}
+            <p>Error: No visualization available</p>
+        {% endif %}
+        <div class="button-group">
+            <a href="/" class="btn">Back to Home</a>
+            <a href="/input" class="btn">Try Different Values</a>
+        </div>
+    </div>
+</body>
+</html>

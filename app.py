@@ -1,24 +1,31 @@
 from flask import Flask, request, render_template
-from rdflib import Graph
+from rdflib import Graph, Namespace
 import matplotlib.pyplot as plt
 import os
 
 app = Flask(__name__)
 
-# Load ontology (if available)
+# Load the RDF ontology
 g = Graph()
-ontology_path = "triangle_area_ontology.rdf"
+ontology_path = "triangle_area_ontology.rdf"  # Path to your RDF file
 ontology_loaded = False
 
 if os.path.exists(ontology_path):
     g.parse(ontology_path)
     ontology_loaded = True
+    print(f"RDF ontology loaded successfully with {len(g)} triples.")
+else:
+    print("Ontology file not found!")
 
-# Routes
+# Define the ontology namespace
+ns = Namespace("http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#")
+
+# Home Route
 @app.route("/")
 def home():
     return render_template("index.html")
 
+# Input Route: Manual base and height input
 @app.route("/input", methods=["GET", "POST"])
 def input_triangle():
     if request.method == "POST":
@@ -28,32 +35,104 @@ def input_triangle():
         return render_template("result.html", base=base, height=height, area=area)
     return render_template("input.html")
 
+# Examples Route: Fetch data from the ontology
 @app.route("/examples")
 def examples():
-    example_data = [
-        {"base": 10, "height": 5, "area": 25},
-        {"base": 8, "height": 4, "area": 16},
-        {"base": 6, "height": 3, "area": 9}
-    ]
-    return render_template("examples.html", examples=example_data, error=None)
+    if not ontology_loaded:
+        return render_template("examples.html", examples=[], error="Ontology not loaded.")
 
+    # SPARQL query to fetch triangle examples
+    query = """
+    PREFIX : <http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#>
+    SELECT ?triangle ?baseVal ?heightVal ?area
+    WHERE {
+        ?triangle a :Triangle .
+        ?triangle :hasBase ?base .
+        ?triangle :hasHeight ?height .
+        ?triangle :valueOfArea ?area .
+        ?base :valueOfBase ?baseVal .
+        ?height :valueOfHeight ?heightVal .
+    }
+    """
+    results = g.query(query)
+
+    # Process query results
+    example_data = [
+        {
+            "triangle": str(row.triangle).split("#")[-1],
+            "base": float(row.baseVal),
+            "height": float(row.heightVal),
+            "area": float(row.area),
+        }
+        for row in results
+    ]
+
+    print("Fetched Examples:", example_data)  # Debugging output
+    return render_template("examples.html", examples=example_data)
+
+# Quiz Route: Dynamic area verification
 @app.route("/quiz", methods=["GET", "POST"])
 def quiz():
     if request.method == "POST":
-        answer = float(request.form["answer"])
-        correct = 25  # Correct answer for base=10 and height=5
-        is_correct = abs(answer - correct) < 0.1
-        return render_template("quiz_result.html", is_correct=is_correct, correct_answer=correct)
+        try:
+            answer = float(request.form["answer"])
+
+            # Modified SPARQL query to match your ontology structure
+            query = """
+            PREFIX : <http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#>
+            SELECT ?area
+            WHERE {
+                ?triangle a :Triangle ;
+                         :valueOfArea ?area .
+            }
+            """
+            results = g.query(query)
+            results_list = list(results)
+            
+            if results_list:
+                correct_answer_value = float(results_list[0][0])
+                is_correct = abs(answer - correct_answer_value) < 0.1
+                print(f"User answer: {answer}, Correct answer: {correct_answer_value}")  # Debug line
+                
+                return render_template("quiz_result.html", 
+                                    is_correct=is_correct, 
+                                    correct_answer=correct_answer_value,
+                                    user_answer=answer)
+            else:
+                return render_template("quiz_result.html", 
+                                    error="No triangle found in the ontology",
+                                    user_answer=answer)
+        except ValueError as e:
+            return render_template("quiz_result.html", 
+                                error=f"Invalid input: {str(e)}",
+                                user_answer=request.form["answer"])
+        except Exception as e:
+            return render_template("quiz_result.html", 
+                                error=f"An error occurred: {str(e)}",
+                                user_answer=request.form["answer"])
+            
     return render_template("quiz.html")
 
+# Visualization Route: Generate a triangle diagram
 @app.route("/visualize/<float:base>/<float:height>")
 def visualize_triangle(base, height):
-    img_path = "static/triangle.png"
-    plt.figure()
-    plt.plot([0, base, 0], [0, 0, height], marker="o")
-    plt.text(base / 2, height / 2, f"Area = {0.5 * base * height} sq units")
-    plt.savefig(img_path)
-    plt.close()
+    img_path = "static/triangle.png"  # Image file path
+    try:
+        plt.figure()
+        plt.plot([0, base, 0], [0, 0, height], marker="o", linestyle="-", color="blue")
+        plt.fill([0, base, 0], [0, 0, height], color="skyblue", alpha=0.5)
+        plt.text(base/2, height/2, f"Area = {0.5 * base * height} sq units", fontsize=12, color="red")
+        plt.title("Triangle Visualization")
+        plt.xlabel("Base")
+        plt.ylabel("Height")
+        plt.grid(True)
+        plt.savefig(img_path)
+        plt.close()
+        print(f"Image saved to {img_path}")
+    except Exception as e:
+        print(f"Error generating image: {e}")
+        return "Error generating triangle visualization."
+
     return render_template("visual.html", img_url=f"/{img_path}")
 
 if __name__ == "__main__":
