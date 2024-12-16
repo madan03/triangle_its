@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="card">
+        <h1>Triangle Quiz</h1>
+        <form method="POST">
+            <p>What is the area of a triangle with base=10 and height=5?</p>
+            <input type="number" name="answer" placeholder="Your Answer" required>
+            <button type="submit" class="btn">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

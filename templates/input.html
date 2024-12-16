@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Triangle Input</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="card">
+        <h1>Enter Triangle Dimensions</h1>
+        <form method="POST">
+            <input type="number" name="base" placeholder="Enter Base (units)" required>
+            <input type="number" name="height" placeholder="Enter Height (units)" required>
+            <button type="submit" class="btn">Calculate</button>
+        </form>
+    </div>
+</body>
+</html>

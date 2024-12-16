@@ -1,0 +1,402 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6/"
+     xml:base="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:untitled-ontology-6="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled -->
+
+    <owl:AnnotationProperty rdf:about="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#hasArea -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#hasArea">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#Triangle"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#Area"/>
+        <rdfs:comment>Links a triangle to its Area</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#hasBase -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#hasBase">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#Triangle"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#Base"/>
+        <rdfs:comment>Links a triangle to its base</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#hasHeight -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#hasHeight">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#Triangle"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#Height"/>
+        <rdfs:comment>Links a triangle to its height</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#isPartOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#isPartOf">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#Base"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#Height"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#Triangle"/>
+        <rdfs:comment>Links a base and height to its Triangle</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#difficultyLevel -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#difficultyLevel">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#Problem"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Indicates the difficulty level of a problem (e.g., easy, medium, hard)</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#valueOfArea -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#valueOfArea">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#Area"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment>Stores the calculated area of a triangle</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#valueOfBase -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#valueOfBase">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#Base"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment>Stores the numerical value of the base of a triangle</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#valueOfHeight -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#valueOfHeight">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#Height"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment>Stores the numerical value of the height of a triangle</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#Area -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#Area">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#Shape"/>
+        <rdfs:comment>The calculated space within the boundaries of a triangle</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#Base -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#Base">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#Shape"/>
+        <rdfs:comment>The bottom edge or foundation of a triangle</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#Height -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#Height">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#Shape"/>
+        <rdfs:comment>The perpendicular distance from the base to the apex of a triangle</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#Problem -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#Problem">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#Shape"/>
+        <rdfs:comment>A mathematical or geometric question related to triangle properties</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#Shape -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#Shape">
+        <rdfs:comment>A generic geometric shape</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#Triangle -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#Triangle">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#Shape"/>
+        <rdfs:comment>A geometric shape with three sides</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#Base1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#Base1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#Base"/>
+        <untitled-ontology-6:valueOfBase rdf:datatype="http://www.w3.org/2001/XMLSchema#float">5.0</untitled-ontology-6:valueOfBase>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#Height1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#Height1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#Height"/>
+        <untitled-ontology-6:valueOfHeight rdf:datatype="http://www.w3.org/2001/XMLSchema#float">10.0</untitled-ontology-6:valueOfHeight>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#Triangle1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#Triangle1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#Triangle"/>
+        <untitled-ontology-6:hasBase rdf:resource="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#Base1"/>
+        <untitled-ontology-6:hasHeight rdf:resource="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#Height1"/>
+        <untitled-ontology-6:valueOfArea rdf:datatype="http://www.w3.org/2001/XMLSchema#float">25.0</untitled-ontology-6:valueOfArea>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Rules
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6/t">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6/b">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6/h">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6/baseVal">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6/heightVal">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6/halfBase">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6/areaVal">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment></rdfs:comment>
+        <rdfs:label>S1</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#Triangle"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6/t"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#hasBase"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6/t"/>
+                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6/b"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#hasHeight"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6/t"/>
+                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6/h"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#valueOfBase"/>
+                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6/b"/>
+                                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6/baseVal"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#valueOfHeight"/>
+                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6/h"/>
+                                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6/heightVal"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                        <rdf:first>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                                                <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#multiply"/>
+                                                                <swrl:arguments>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                        <rdf:first rdf:resource="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6/halfBase"/>
+                                                                        <rdf:rest>
+                                                                            <rdf:Description>
+                                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.5</rdf:first>
+                                                                                <rdf:rest rdf:parseType="Collection">
+                                                                                    <rdf:Description rdf:about="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6/baseVal"/>
+                                                                                </rdf:rest>
+                                                                            </rdf:Description>
+                                                                        </rdf:rest>
+                                                                    </rdf:Description>
+                                                                </swrl:arguments>
+                                                            </rdf:Description>
+                                                        </rdf:first>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                <rdf:first>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                                                        <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#multiply"/>
+                                                                        <swrl:arguments rdf:parseType="Collection">
+                                                                            <rdf:Description rdf:about="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6/areaVal"/>
+                                                                            <rdf:Description rdf:about="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6/halfBase"/>
+                                                                            <rdf:Description rdf:about="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6/heightVal"/>
+                                                                        </swrl:arguments>
+                                                                    </rdf:Description>
+                                                                </rdf:first>
+                                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6#valueOfArea"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6/t"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/ermadan/ontologies/2024/11/untitled-ontology-6/areaVal"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+

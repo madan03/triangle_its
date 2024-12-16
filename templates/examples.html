@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Examples</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="card">
+        <h1>Stored Examples</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Base</th>
+                    <th>Height</th>
+                    <th>Area</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for example in examples %}
+                <tr>
+                    <td>{{ example.base }}</td>
+                    <td>{{ example.height }}</td>
+                    <td>{{ example.area }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="/" class="btn">Back to Home</a>
+    </div>
+</body>
+</html>

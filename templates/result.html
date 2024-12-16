@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="card">
+        <h1>Calculation Result</h1>
+        <p>Base: {{ base }} units</p>
+        <p>Height: {{ height }} units</p>
+        <p>Area: {{ area }} square units</p>
+        <a href="/" class="btn">Back to Home</a>
+        <a href="/input" class="btn">Calculate Again</a>
+    </div>
+</body>
+</html>
