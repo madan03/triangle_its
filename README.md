@@ -1,4 +1,4 @@
-# Triangle Area Calculator
+# Intelligent Tutoring System for Calculating the Area of a Triangle 
 
 A web-based application built with Flask that helps users calculate and visualize triangle areas using RDF ontology.
 
@@ -21,10 +21,12 @@ A web-based application built with Flask that helps users calculate and visualiz
 
 ## Installation
 
-1. Clone the repository
+1.Clone the repository
 
-bash
+IN Bash CMD:
+
 git clone https://github.com/madan03/triangle_its.git
+
 cd riangle_its
 
 
@@ -35,7 +37,9 @@ pip install -r requirements.txt
 3. Ensure you have the RDF ontology file (`triangle_area_ontology.rdf`) in the project root directory
 
 4. Run the application
-bash
+
+In bash CMD:
+
 python app.py
 
-5. Access the application in your web browser at http://localhost:5000
+5.Access the application in your web browser at http://localhost:5000
