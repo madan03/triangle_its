@@ -43,3 +43,14 @@ In bash CMD:
 python app.py
 
 5.Access the application in your web browser at http://localhost:5000
+
+<div align="center">
+    <img src="screenshots/homepage.png" alt="Triangle ITS Homepage" width="800px">
+    <p><i>Triangle ITS web interface showing the main home page</i></p>
+    <img src="screenshots/calculation.png" alt="Triangle Calculation" width="800px">
+    <p><i>Example of triangle area calculation</i></p>
+    <img src="screenshots/storedpage.png" alt="Interactive Quiz" width="800px">
+    <p><i>Interactive stored example </i></p>
+    <img src="screenshots/quizpage.png" alt="Interactive Quiz" width="800px">
+    <p><i>Interactive quiz interface</i></p>
+</div>
