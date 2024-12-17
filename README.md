@@ -23,26 +23,30 @@ A web-based application built with Flask that helps users calculate and visualiz
 
 1.Clone the repository
 
-IN Bash CMD:
+##### Run  the following command ####
 
 git clone https://github.com/madan03/triangle_its.git
 
-cd riangle_its
+cd triangle_its
 
 
 2. Install required dependencies
-bash
+
+#### Run in Terminal this commmand ###
+
 pip install -r requirements.txt
 
 3. Ensure you have the RDF ontology file (`triangle_area_ontology.rdf`) in the project root directory
 
 4. Run the application
 
-In bash CMD:
+#### Type terminal bellow command ####
 
 python app.py
 
 5.Access the application in your web browser at http://localhost:5000
+
+
 
 <div align="center">
     <img src="screenshots/homepage.png" alt="Triangle ITS Homepage" width="800px">
