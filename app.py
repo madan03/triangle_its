@@ -32,7 +32,24 @@ def input_triangle():
         base = float(request.form["base"])
         height = float(request.form["height"])
         area = 0.5 * base * height
-        return render_template("result.html", base=base, height=height, area=area)
+
+        # Generate visualization
+        img_path = "static/triangle.png"
+        try:
+            plt.figure()
+            plt.plot([0, base, 0], [0, 0, height], marker="o", linestyle="-", color="blue")
+            plt.fill([0, base, 0], [0, 0, height], color="skyblue", alpha=0.5)
+            plt.text(base/2, height/2, f"Area = {area} sq units", fontsize=12, color="red")
+            plt.title("Triangle Visualization")
+            plt.xlabel("Base")
+            plt.ylabel("Height")
+            plt.grid(True)
+            plt.savefig(img_path)
+            plt.close()
+        except Exception as e:
+            print(f"Error generating image: {e}")
+
+        return render_template("result.html", base=base, height=height, area=area, img_url=f"/{img_path}")
     return render_template("input.html")
 
 # Examples Route: Fetch data from the ontology
@@ -113,27 +130,6 @@ def quiz():
             
     return render_template("quiz.html")
 
-# Visualization Route: Generate a triangle diagram
-@app.route("/visualize/<float:base>/<float:height>")
-def visualize_triangle(base, height):
-    img_path = "static/triangle.png"  # Image file path
-    try:
-        plt.figure()
-        plt.plot([0, base, 0], [0, 0, height], marker="o", linestyle="-", color="blue")
-        plt.fill([0, base, 0], [0, 0, height], color="skyblue", alpha=0.5)
-        plt.text(base/2, height/2, f"Area = {0.5 * base * height} sq units", fontsize=12, color="red")
-        plt.title("Triangle Visualization")
-        plt.xlabel("Base")
-        plt.ylabel("Height")
-        plt.grid(True)
-        plt.savefig(img_path)
-        plt.close()
-        print(f"Image saved to {img_path}")
-    except Exception as e:
-        print(f"Error generating image: {e}")
-        return "Error generating triangle visualization."
-
-    return render_template("visual.html", img_url=f"/{img_path}")
 
 if __name__ == "__main__":
     app.run(debug=True)
